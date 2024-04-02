@@ -1,3 +1,7 @@
+![Crates.io Version](https://img.shields.io/crates/v/signature-verifier)
+![Crates.io Total Downloads](https://img.shields.io/crates/d/signature-verifier)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/0xtmphey/signature-verifier/rust.yml)
+
 # signature-verifier
 This crate provide an easy way to verify Solana and Ethereum wallet-signed messages.
 
