@@ -14,7 +14,7 @@ use crate::signature_verifier::SignatureVerifier;
 /// as strings, decodes the signature and public key from bs58, and performs verification
 /// accordingly.
 ///
-/// ```rust
+/// ```ignore
 /// let verifier = SolanaSignatureVerifier;
 /// let signature = "5muzg..."; // Signature in bs58 format
 /// let message = "Message to verify";

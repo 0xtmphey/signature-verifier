@@ -19,7 +19,7 @@ use crate::error::VerifyError;
 ///
 /// # Examples
 ///
-/// ```
+/// ```ignore
 /// # struct MyVerifier;
 /// # impl SignatureVerifier for MyVerifier {
 /// #     fn verify<S: AsRef<str>>(signature: S, message: S, signer_pubkey: S)

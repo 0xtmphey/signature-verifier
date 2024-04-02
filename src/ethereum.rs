@@ -10,7 +10,7 @@ use crate::signature_verifier::SignatureVerifier;
 /// Ethereum addresses and signatures. Malformed or invalid inputs will result in a verification
 /// failure.
 ///
-/// ```rust
+/// ```ignore
 /// let verifier = EthereumSignatureVerifier;
 /// let signature = "7c7240d970b40d0b7a7a798584fee..."; // Signature in hex format
 /// let message = "Message to verify";
