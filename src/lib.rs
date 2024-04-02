@@ -1,3 +1,9 @@
+//! # signature-verifier
+//!
+//! Convenience crate for verifying crypto-signed messages.
+//!
+//! Currently supports Ethereum- and Solana-signed messages.
+
 mod signature_verifier;
 pub use signature_verifier::SignatureVerifier;
 
