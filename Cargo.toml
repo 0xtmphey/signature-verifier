@@ -1,7 +1,12 @@
 [package]
 name = "signature-verifier"
-version = "0.1.0"
+description = "Convenience crate for verifying crypto-signed messages"
+version = "1.0.0"
+license = "MIT"
 edition = "2021"
+authors = ["Tim Plotnikov"]
+homepage = "https://github.com/0xtmphey/signature-verifier"
+keywords = ["crypto", "blockchain", "solana", "ethereum"]
 
 [features]
 ethereum = ["dep:web3"]
