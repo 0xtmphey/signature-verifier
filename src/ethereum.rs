@@ -3,6 +3,24 @@ use web3::signing::{keccak256, recover};
 use crate::error::VerifyError;
 use crate::signature_verifier::SignatureVerifier;
 
+/// Verifies Ethereum-signed messages.
+///
+/// # Examples
+/// You should ensure the hexadecimal inputs are correctly formatted and represent valid
+/// Ethereum addresses and signatures. Malformed or invalid inputs will result in a verification
+/// failure.
+///
+/// ```rust
+/// let verifier = EthereumSignatureVerifier;
+/// let signature = "7c7240d970b40d0b7a7a798584fee..."; // Signature in hex format
+/// let message = "Message to verify";
+/// let signer_pubkey = "0x1234..."; // Public key in hex format
+///
+/// match verifier.verify(signature, message, signer_pubkey) {
+///     Ok(()) => println!("Signature verified successfully."),
+///     Err(e) => println!("Verification failed: {:?}", e),
+/// }
+/// ```
 pub struct EthereumVerifier;
 
 impl SignatureVerifier for EthereumVerifier {

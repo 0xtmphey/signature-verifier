@@ -1,7 +1,9 @@
 #[derive(Debug, Clone, PartialEq)]
 pub enum VerifyError {
+    /// Indicates that provided data has invalid encoding (wrong hex format, wrong string size, etc)
     InvalidEncoding(String),
 
+    /// Indicates that signature doesn't match the provided public key
     InvalidSignature,
 }
 

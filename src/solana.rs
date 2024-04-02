@@ -6,6 +6,25 @@ use solana_sdk::pubkey::Pubkey;
 use crate::error::VerifyError;
 use crate::signature_verifier::SignatureVerifier;
 
+/// Verifies Solana-signed messages.
+///
+/// # Examples
+/// Solana uses the Ed25519 digital signature scheme with signatures and public keys typically
+/// encoded in bs58. This implementation expects all inputs (signature, message, public key)
+/// as strings, decodes the signature and public key from bs58, and performs verification
+/// accordingly.
+///
+/// ```rust
+/// let verifier = SolanaSignatureVerifier;
+/// let signature = "5muzg..."; // Signature in bs58 format
+/// let message = "Message to verify";
+/// let signer_pubkey = "FkHn..."; // Public key in bs58 format
+///
+/// match verifier.verify(signature, message, signer_pubkey) {
+///     Ok(()) => println!("Signature verified successfully."),
+///     Err(e) => println!("Verification failed: {:?}", e),
+/// }
+/// ```
 pub struct SolanaVerifier;
 
 impl SignatureVerifier for SolanaVerifier {
