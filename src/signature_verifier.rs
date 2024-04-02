@@ -1,5 +1,5 @@
 use anyhow::Error;
 
 pub trait SignatureVerifier {
-    fn verify<M: AsRef<str>>(signature: M, message: M, signer_pubkey: M) -> Result<(), Error>;
+    fn verify<S: AsRef<str>>(signature: S, message: S, signer_pubkey: S) -> Result<(), Error>;
 }
