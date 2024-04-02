@@ -26,6 +26,13 @@ impl SignatureVerifier for EthereumVerifier {
         );
 
         let signature_bytes = hex::decode(signature)?;
+        if signature_bytes.len() != 65 {
+            return Err(VerifyError::InvalidEncoding(format!(
+                "The signature has wrong length: {}, Expected: 65",
+                signature_bytes.len(),
+            )));
+        }
+
         let recovery_id = signature_bytes[64] as i32 - 27;
 
         let extracted_signer = recover(&message_hash, &signature_bytes[..64], recovery_id)
