@@ -6,3 +6,5 @@ pub use signature_verifier::SignatureVerifier;
 
 #[cfg(feature = "solana")]
 pub mod solana_verifier;
+
+pub mod error;

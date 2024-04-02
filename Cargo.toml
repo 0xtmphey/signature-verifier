@@ -9,7 +9,6 @@ ethereum = ["dep:web3"]
 solana = ["dep:solana-sdk", "dep:nacl", "dep:bs58"]
 
 [dependencies]
-anyhow = "1.0.81"
 bs58 = { version = "0.5.1", optional = true }
 hex = "0.4.3"
 nacl = { version = "0.5.3", optional = true }

@@ -1,9 +1,9 @@
 use std::str::FromStr;
 
-use anyhow::{anyhow, Ok};
 use nacl::sign::verify;
 use solana_sdk::pubkey::Pubkey;
 
+use crate::error::VerifyError;
 use crate::signature_verifier::SignatureVerifier;
 
 pub struct SolanaVerifier;
@@ -13,7 +13,7 @@ impl SignatureVerifier for SolanaVerifier {
         signature: S,
         message: S,
         signer_pubkey: S,
-    ) -> Result<(), anyhow::Error> {
+    ) -> Result<(), VerifyError> {
         let message = message.as_ref();
         let signature = signature.as_ref();
         let signer_pubkey = signer_pubkey.as_ref();
@@ -21,13 +21,12 @@ impl SignatureVerifier for SolanaVerifier {
         let signature_bytes = bs58::decode(signature).into_vec()?;
         let signer_pubkey_bytes = Pubkey::from_str(signer_pubkey)?.to_bytes();
 
-        let res = verify(&signature_bytes, message.as_bytes(), &signer_pubkey_bytes)
-            .map_err(|_| anyhow!("Invalid signature!"))?;
+        let res = verify(&signature_bytes, message.as_bytes(), &signer_pubkey_bytes)?;
 
         if res {
             Ok(())
         } else {
-            Err(anyhow!("Invalid signature!"))
+            Err(VerifyError::InvalidSignature)
         }
     }
 }

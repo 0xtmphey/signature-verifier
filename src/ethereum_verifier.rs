@@ -1,6 +1,6 @@
-use anyhow::anyhow;
 use web3::signing::{keccak256, recover};
 
+use crate::error::VerifyError;
 use crate::signature_verifier::SignatureVerifier;
 
 pub struct EthereumVerifier;
@@ -10,7 +10,7 @@ impl SignatureVerifier for EthereumVerifier {
         signature: M,
         message: M,
         signer_pubkey: M,
-    ) -> Result<(), anyhow::Error> {
+    ) -> Result<(), VerifyError> {
         let message = message.as_ref();
         let signature = signature.as_ref();
         let signer_pubkey = signer_pubkey.as_ref();
@@ -34,7 +34,7 @@ impl SignatureVerifier for EthereumVerifier {
         if signer_pubkey.to_lowercase() == extracted_signer {
             Ok(())
         } else {
-            Err(anyhow!("Invalid signature!"))
+            Err(VerifyError::InvalidSignature)
         }
     }
 }
