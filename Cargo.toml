@@ -5,7 +5,7 @@ version = "1.0.0"
 license = "MIT"
 edition = "2021"
 authors = ["Tim Plotnikov"]
-homepage = "https://github.com/0xtmphey/signature-verifier"
+repository = "https://github.com/0xtmphey/signature-verifier"
 keywords = ["crypto", "blockchain", "solana", "ethereum"]
 
 [features]
